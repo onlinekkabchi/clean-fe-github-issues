@@ -29,11 +29,16 @@ function main() {
     form.classList.toggle("hidden");
   });
 
-  // Create a click event listener for the button
-  button.addEventListener("click", function (event) {
-    event.preventDefault();
-    alert("Label created!");
-  });
+  // form.addEventListener("submit", (event) => {
+  //   event.preventDefault();
+
+  //   const formData = new FormData(form);
+
+  //   console.log(formData);
+  //   fetch(form.action, { method: "POST", body: formData })
+  //     .then((res) => res.json())
+  //     .catch((err) => console.log(err));
+  // });
 
   // Enable the button
   button.disabled = false;

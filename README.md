@@ -34,15 +34,19 @@ MVC (Model-View-Controller) is a pattern in software design commonly used to imp
 
 Model–view–viewmodel (MVVM) is an architectural pattern in computer software that facilitates the separation of the development of the graphical user interface (GUI; the view)—be it via a markup language or GUI code—from the development of the business logic or back-end logic (the model) such that the view is not dependent upon any specific model platform.
 
-![MV, wiki](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/MVVMPattern.png/500px-MVVMPattern.png)
+![MVVM, wiki](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/MVVMPattern.png/500px-MVVMPattern.png)
 
 ## Proxy
 
 The **Proxy** object enables you to create a proxy for another object, which can intercept and redefine fundamental operations for that object.
 
-## Set
+## Set Object
 
 The **Set** object lets you store unique values of any type, whether primitive values or object references.
+
+## middleware
+
+Middleware is software that lies between an operating system and the applications running on it. Essentially functioning as hidden translation layer, middleware enables communication and data management for distributed applications. It’s sometimes called plumbing, as it connects two applications together so data and databases can be easily passed between the “pipe.” Using middleware allows users to perform such requests as submitting forms on a web browser, or allowing the web server to return dynamic web pages based on a user’s profile.
 
 # ref
 
@@ -55,3 +59,5 @@ The **Set** object lets you store unique values of any type, whether primitive v
 - [Proxy, mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 - [Vite Proxy 설정하는 법, velog](https://velog.io/@zerone/Vite-Proxy-%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94-%EB%B2%95)
 - [Set, mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set#description)
+
+- [What is middleware?, azure microsoft](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-middleware/)

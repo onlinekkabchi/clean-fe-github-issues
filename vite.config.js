@@ -25,6 +25,12 @@ export default defineConfig({
         target: "ws://localhost:5174",
         ws: true,
       },
+      "/labels": {
+        target:
+          "https://script.google.com/macros/s/AKfycbyBVxngbXmFaTyrVp61-151nkF6IW4IDpIZYmj_H3G1x_xH11Ne-6KocRe26fjj64dBwA/exec",
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 });
