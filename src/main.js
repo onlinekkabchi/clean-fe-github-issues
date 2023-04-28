@@ -1,44 +1,36 @@
 import { getLabelTpl } from "./tpl.js";
-import { View } from "./view.js";
+import { view } from "./view.js";
 
 const app = document.querySelector("#app");
-app.insertAdjacentHTML("beforeend", getLabelTpl());
+const newLabelBtn = document.querySelector(".new-label-button");
+const form = document.querySelector("#new-label-form");
+const button = document.querySelector("#label-create-button");
 
-const view = new View();
+view.app = app;
+view.init();
 
-async function init() {
-  await view.getLabelData();
-  // const labelItems = view.render().join("");
-  app.insertAdjacentHTML("beforeend", view.render().join(""));
-}
+// app.insertAdjacentHTML("beforeend", getLabelTpl());
+
+// async function init() {
+//   await view.init();
+//   // const labelItems = view.render().join("");
+//   app.insertAdjacentHTML("beforeend", view.render().join(""));
+// }
 
 function main() {
-  const newLabelBtn = document.querySelector(".new-label-button");
-  const form = document.querySelector("#new-label-form");
-  const button = document.querySelector("#label-create-button");
-
-  const nameLabel = document.querySelector("#label-name-input");
-  const descriptionLabel = document.querySelector("#label-description-input");
-  const colorLabel = document.querySelector("#label-color-value");
-
-  const nameValue = nameLabel.value;
-  const descriptionValue = descriptionLabel.value;
-  const colorValue = colorLabel.value;
-
   newLabelBtn.addEventListener("click", () => {
     form.classList.toggle("hidden");
   });
 
-  // form.addEventListener("submit", (event) => {
-  //   event.preventDefault();
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  //   const formData = new FormData(form);
+    const labelName = form.querySelector("#label-name-input").value;
+    const labelDescription = form.querySelector("#label-description-input").value;
+    const labelColor = form.querySelector("#label-color-value").value;
 
-  //   console.log(formData);
-  //   fetch(form.action, { method: "POST", body: formData })
-  //     .then((res) => res.json())
-  //     .catch((err) => console.log(err));
-  // });
+    console.log(labelName, labelDescription, labelColor);
+  });
 
   // Enable the button
   button.disabled = false;
@@ -46,5 +38,4 @@ function main() {
   button.classList.add("opacity-100");
 }
 
-init();
 main();

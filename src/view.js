@@ -1,19 +1,21 @@
-import { getLabelItemTpl } from "./tpl";
+import { getLabelTpl, getLabelItemTpl } from "./tpl";
 
-export class View {
-  constructor(data) {
-    this.data = data;
-  }
+export const view = {
+  app: null,
+  data: [],
 
-  async getLabelData() {
+  init() {
+    this.app.insertAdjacentHTML("beforeend", getLabelTpl());
+  },
+
+  async getinitdata() {
     const response = await fetch("../data-sources/labels.json");
     const result = await response.json();
-    this.data = result;
-  }
+  },
 
   render() {
     return this.data.map((item) =>
       getLabelItemTpl({ name: item.name, color: item.color, description: item.description })
     );
-  }
-}
+  },
+};

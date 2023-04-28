@@ -61,3 +61,8 @@ Middleware is software that lies between an operating system and the application
 - [Set, mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set#description)
 
 - [What is middleware?, azure microsoft](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-middleware/)
+
+### form
+
+- [How to capture response of form submit](https://stackoverflow.com/questions/374644/how-do-i-capture-response-of-form-submit)
+- [Sending forms through JavaScript](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_forms_through_JavaScript)

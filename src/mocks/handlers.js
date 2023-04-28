@@ -147,6 +147,6 @@ const labels = [
   {
     name: "duplicate",
     color: "cfd3d7",
-    description: "this is dulicate",
+    description: "this is duplicate",
   },
 ];

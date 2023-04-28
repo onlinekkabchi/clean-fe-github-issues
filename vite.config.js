@@ -25,12 +25,25 @@ export default defineConfig({
         target: "ws://localhost:5174",
         ws: true,
       },
-      "/labels": {
-        target:
-          "https://script.google.com/macros/s/AKfycbyBVxngbXmFaTyrVp61-151nkF6IW4IDpIZYmj_H3G1x_xH11Ne-6KocRe26fjj64dBwA/exec",
-        changeOrigin: true,
-        secure: false,
-      },
     },
   },
 });
+
+// import express from "express";
+
+// export default {
+//   configureServer: ({ app }) => {
+//     const router = express.Router();
+
+//     router.post("/labels", (req, res) => {
+//       const url =
+//         "https://script.google.com/macros/s/AKfycbzMvuEKUZQUOTFxJFH0c3XzSPzGKLq6fjknGZ9B8XuJuwnuYjydVxegYM80uMM6TqlrBw/exec";
+//       // Here you can use a library such as 'node-fetch' or 'axios' to make the request to the URL
+//       // and handle the response
+//       // ...
+//       res.send("Request received");
+//     });
+
+//     app.use(router);
+//   },
+// };
