@@ -2,22 +2,19 @@ import { getLabelTpl } from "./tpl.js";
 import { view } from "./view.js";
 
 const app = document.querySelector("#app");
-const newLabelBtn = document.querySelector(".new-label-button");
-const form = document.querySelector("#new-label-form");
-const button = document.querySelector("#label-create-button");
+app.insertAdjacentHTML("beforeend", getLabelTpl());
 
 view.app = app;
 view.init();
 
-// app.insertAdjacentHTML("beforeend", getLabelTpl());
-
-// async function init() {
-//   await view.init();
-//   // const labelItems = view.render().join("");
-//   app.insertAdjacentHTML("beforeend", view.render().join(""));
-// }
-
 function main() {
+  const newLabelBtn = document.querySelector(".new-label-button");
+  const form = document.querySelector("#new-label-form");
+  const button = document.querySelector("#label-create-button");
+  const labelName = form.querySelector("#label-name-input");
+  const labelDescription = form.querySelector("#label-description-input");
+  const labelColor = form.querySelector("#label-color-value");
+
   newLabelBtn.addEventListener("click", () => {
     form.classList.toggle("hidden");
   });
@@ -25,11 +22,13 @@ function main() {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const labelName = form.querySelector("#label-name-input").value;
-    const labelDescription = form.querySelector("#label-description-input").value;
-    const labelColor = form.querySelector("#label-color-value").value;
+    const labelNameValue = labelName.value;
+    const labelDescriptionValue = labelDescription.value;
+    const labelColorValue = labelColor.value;
 
-    console.log(labelName, labelDescription, labelColor);
+    // console.log(labelName, labelDescription, labelColor);
+
+    view.add({ name: labelNameValue, color: labelColorValue, description: labelDescriptionValue });
   });
 
   // Enable the button
