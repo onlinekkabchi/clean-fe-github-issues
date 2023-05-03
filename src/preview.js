@@ -1,1 +1,3 @@
-export const preview = {};
+export const preview = {
+  form: null,
+};
