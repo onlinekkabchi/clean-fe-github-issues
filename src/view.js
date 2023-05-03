@@ -27,7 +27,6 @@ export const view = {
     this.app.insertAdjacentHTML("beforeend", getLabelItemTpl(item));
   },
   countLabel() {
-    const count = this.data.length;
-    this.app.querySelector(".label-header > div > div").textContent = count + " Labels";
+    this.app.querySelector(".label-header > div > div").textContent = this.data.length + " Labels";
   },
 };

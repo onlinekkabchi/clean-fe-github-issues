@@ -1,6 +1,7 @@
 // teal, sea green, tan, off black, light gray, kelly green, navy, rose pink, indigo
 
 const colors = ["43a5be", "53bda5", "f5c26b", "253342", "cbd6e2", "4fb06d", "f07857", "ebb8dd", "5c62d6"];
+const picker = () => colors[Math.floor(Math.random() * colors.length)];
 
 export default function preview(data) {
   const label = data.label;
@@ -20,7 +21,7 @@ export default function preview(data) {
   });
 
   labelColorChangeBtn.addEventListener("click", () => {
-    const color = colors[Math.floor(Math.random() * colors.length)];
+    const color = picker();
     labelColorChangeBtn.style.backgroundColor = "#" + color;
     labelPreview.style.backgroundColor = "#" + color;
     labelColor.value = color;

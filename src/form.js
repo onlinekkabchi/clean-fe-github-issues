@@ -21,7 +21,6 @@ export default function form(view, label) {
   const labelName = form.querySelector("#label-name-input");
   const labelDescription = form.querySelector("#label-description-input");
   const labelColor = form.querySelector("#label-color-value");
-
   const labelColorChangeBtn = form.querySelector("#new-label-color");
 
   preview({
