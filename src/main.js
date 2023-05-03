@@ -1,6 +1,8 @@
 import { getLabelTpl } from "./tpl.js";
 import { view } from "./view.js";
 // import { preview } from "./preview.js";
+import { Label } from "./label.js";
+import preview from "./preview.js";
 
 const app = document.querySelector("#app");
 app.insertAdjacentHTML("beforeend", getLabelTpl());
@@ -12,62 +14,38 @@ function main() {
   const newLabelBtn = document.querySelector(".new-label-button");
   const form = document.querySelector("#new-label-form");
   const button = document.querySelector("#label-create-button");
-  const labelName = form.querySelector("#label-name-input");
-  const labelDescription = form.querySelector("#label-description-input");
-  const labelColor = form.querySelector("#label-color-value");
-  const labelPreview = form.querySelector("#label-preview");
-  const labelColorChangeBtn = form.querySelector("#new-label-color");
+
+  const label = new Label();
+  preview(label);
+
+  const onOffBtn = () => {
+    console.log(form.querySelector("#label-name-input").validity.valueMissing);
+    if (form.querySelector("#label-name-input").validity.valueMissing) {
+      button.disabled = true;
+      button.classList.remove("opacity-100");
+      button.classList.add("opacity-50");
+    } else {
+      // Enable the button
+      button.disabled = false;
+      button.classList.remove("opacity-50");
+      button.classList.add("opacity-100");
+    }
+  };
 
   newLabelBtn.addEventListener("click", () => {
     form.classList.toggle("hidden");
   });
 
-  labelName.addEventListener("keyup", (e) => {
-    console.log(e.target.value);
-    labelPreview.textContent = e.target.value;
-    checkValues();
-  });
-
-  labelDescription.addEventListener("keyup", (e) => {
-    checkValues();
-  });
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    const labelNameValue = labelName.value;
-    const labelDescriptionValue = labelDescription.value;
-    const labelColorValue = labelColor.value;
-
-    view.add({ name: labelNameValue, color: labelColorValue, description: labelDescriptionValue });
-
-    labelName.value = "";
-    labelColor.value = "";
-    labelDescription.value = "";
+    view.add(label.showLabelValues());
+    form.reset();
+    onOffBtn();
   });
 
-  labelColorChangeBtn.addEventListener("click", () => {
-    // teal, sea green, tan, off black, light gray, kelly green, navy, rose pink, indigo
-    const items = ["#43a5be", "#53bda5", "#f5c26b", "#253342", "#cbd6e2", "#4fb06d", "#f07857", "#ebb8dd", "#5c62d6"];
-    const item = items[Math.floor(Math.random() * items.length)];
-    labelColorChangeBtn.style.backgroundColor = item;
-    labelPreview.style.backgroundColor = item;
-    labelColor.value = item;
-    checkValues();
+  form.addEventListener("input", () => {
+    onOffBtn();
   });
-
-  const checkValues = () => {
-    if (labelName.value.length > 0 && labelDescription.value.length > 0 && labelColor.value.length > 0) {
-      // Enable the button
-      button.disabled = false;
-      button.classList.remove("opacity-50");
-      button.classList.add("opacity-100");
-    } else {
-      button.disabled = true;
-      button.classList.remove("opacity-100");
-      button.classList.add("opacity-50");
-    }
-  };
 }
 
 main();
