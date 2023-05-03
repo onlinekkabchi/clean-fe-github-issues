@@ -3,7 +3,6 @@ import { view } from "./view.js";
 // import { preview } from "./preview.js";
 import { Label } from "./label.js";
 import form from "./form.js";
-import preview from "./preview.js";
 
 const app = document.querySelector("#app");
 app.insertAdjacentHTML("beforeend", getLabelTpl());
@@ -14,7 +13,6 @@ view.init();
 function main() {
   const label = new Label();
   form(view, label);
-  preview(label);
 }
 
 main();

@@ -1,12 +1,14 @@
+// teal, sea green, tan, off black, light gray, kelly green, navy, rose pink, indigo
+
 const colors = ["43a5be", "53bda5", "f5c26b", "253342", "cbd6e2", "4fb06d", "f07857", "ebb8dd", "5c62d6"];
 
-export default function preview(label) {
-  const form = document.querySelector("#new-label-form");
-  const labelName = form.querySelector("#label-name-input");
-  const labelDescription = form.querySelector("#label-description-input");
-  const labelColor = form.querySelector("#label-color-value");
-  const labelPreview = form.querySelector("#label-preview");
-  const labelColorChangeBtn = form.querySelector("#new-label-color");
+export default function preview(data) {
+  const label = data.label;
+  const labelPreview = data.labelPreview;
+  const labelName = data.labelName;
+  const labelDescription = data.labelDescription;
+  const labelColor = data.labelColor;
+  const labelColorChangeBtn = data.labelColorChangeBtn;
 
   labelName.addEventListener("keyup", (e) => {
     labelPreview.textContent = e.target.value;
@@ -18,8 +20,6 @@ export default function preview(label) {
   });
 
   labelColorChangeBtn.addEventListener("click", () => {
-    // teal, sea green, tan, off black, light gray, kelly green, navy, rose pink, indigo
-
     const color = colors[Math.floor(Math.random() * colors.length)];
     labelColorChangeBtn.style.backgroundColor = "#" + color;
     labelPreview.style.backgroundColor = "#" + color;
