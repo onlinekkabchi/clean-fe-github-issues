@@ -39,6 +39,9 @@ export default function form(view, label) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     view.add(label.showLabelValues());
+    // labelPreview.textContent = "라벨 내용 없음";
+    // labelPreview.style.backgroundColor = "#fff";
+    // labelColorChangeBtn.style.backgroundColor = "#fff";
     form.reset();
     onOffBtn(labelName, button);
   });
