@@ -8,7 +8,7 @@ export const view = {
     const response = await fetch("../data-sources/labels.json");
     const result = await response.json();
     result.forEach((item) => {
-      this.render(item);
+      this.add(item);
     });
   },
   add(input) {
@@ -20,9 +20,14 @@ export const view = {
     // this.data.concat(model).forEach((item) => this.render(item));
 
     this.data.push(model);
-    return this.render(model);
+    this.render(model);
+    this.countLabel();
   },
   render(item) {
-    return this.app.insertAdjacentHTML("beforeend", getLabelItemTpl(item));
+    this.app.insertAdjacentHTML("beforeend", getLabelItemTpl(item));
+  },
+  countLabel() {
+    const count = this.data.length;
+    this.app.querySelector(".label-header > div > div").textContent = count + " Labels";
   },
 };
